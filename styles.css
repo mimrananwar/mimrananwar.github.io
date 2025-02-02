@@ -15,6 +15,7 @@ body {
 /* Navbar Styling */
 .navbar {
     @apply bg-white shadow-md p-4 flex justify-between items-center;
+    animation: fadeInDown 0.8s ease-out;
 }
 .navbar a {
     @apply text-gray-700 hover:text-blue-600;
@@ -23,17 +24,24 @@ body {
 /* Section Styling */
 .section {
     @apply text-center py-16;
+    animation: fadeInUp 1s ease-in-out;
 }
 .section-title {
     @apply text-4xl font-bold text-gray-800;
+    animation: slideInLeft 1s ease-in-out;
 }
 .section-text {
     @apply mt-4 text-lg text-gray-600 max-w-3xl mx-auto;
+    animation: slideInRight 1s ease-in-out;
 }
 
 /* Card Styling */
 .card {
     @apply bg-white p-6 rounded-lg shadow-md text-center;
+    transition: transform 0.3s ease-in-out;
+}
+.card:hover {
+    transform: scale(1.05);
 }
 .card-title {
     @apply text-xl font-semibold text-blue-600;
@@ -45,4 +53,31 @@ body {
 /* Footer Styling */
 .footer {
     @apply text-center py-4 bg-gray-800 text-white mt-10;
+    animation: fadeIn 1.5s ease-in;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
 }
