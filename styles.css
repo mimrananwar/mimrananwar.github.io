@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-    @apply mx-auto px-6;
+    @apply mx-auto px-6 max-w-6xl;
 }
 
 /* Navbar Styling */
@@ -17,8 +17,11 @@ body {
     @apply bg-white shadow-md p-4 flex justify-between items-center;
     animation: fadeInDown 0.8s ease-out;
 }
+.navbar ul {
+    @apply flex space-x-6;
+}
 .navbar a {
-    @apply text-gray-700 hover:text-blue-600;
+    @apply text-gray-700 hover:text-blue-600 font-semibold text-lg;
 }
 
 /* Section Styling */
@@ -37,8 +40,7 @@ body {
 
 /* Card Styling */
 .card {
-    @apply bg-white p-6 rounded-lg shadow-md text-center;
-    transition: transform 0.3s ease-in-out;
+    @apply bg-white p-6 rounded-lg shadow-md text-center transition-transform duration-300;
 }
 .card:hover {
     transform: scale(1.05);
