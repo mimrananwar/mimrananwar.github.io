@@ -1,0 +1,48 @@
+/* Custom Styles for Imran Anwar's Website */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* General Styling */
+body {
+    @apply bg-gray-100;
+}
+
+.container {
+    @apply mx-auto px-6;
+}
+
+/* Navbar Styling */
+.navbar {
+    @apply bg-white shadow-md p-4 flex justify-between items-center;
+}
+.navbar a {
+    @apply text-gray-700 hover:text-blue-600;
+}
+
+/* Section Styling */
+.section {
+    @apply text-center py-16;
+}
+.section-title {
+    @apply text-4xl font-bold text-gray-800;
+}
+.section-text {
+    @apply mt-4 text-lg text-gray-600 max-w-3xl mx-auto;
+}
+
+/* Card Styling */
+.card {
+    @apply bg-white p-6 rounded-lg shadow-md text-center;
+}
+.card-title {
+    @apply text-xl font-semibold text-blue-600;
+}
+.card-text {
+    @apply text-gray-600 mt-2;
+}
+
+/* Footer Styling */
+.footer {
+    @apply text-center py-4 bg-gray-800 text-white mt-10;
+}
