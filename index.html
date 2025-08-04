@@ -3,44 +3,466 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Imran Anwar - Home</title>
-	<link rel="stylesheet" href="styles.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100">
-   <div id="navbar-container"></div>
-<script src="loadNavbar.js"></script>
-    
-    <!-- Hero Section -->
-    <section class="text-center py-20 bg-blue-500 text-white">
-        <h1 class="text-4xl font-bold">Empowering Businesses with Financial Solutions</h1>
-        <p class="mt-4 text-lg">Specialist in Financial Analysis, Automation & NetSuite</p>
-        <a href="contact.html" class="mt-6 inline-block bg-white text-blue-600 px-6 py-2 rounded-lg font-semibold hover:bg-gray-200">Get in Touch</a>
-    </section>
+    <title>Muhammad Imran Anwar | NetSuite FP&A Specialist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* CSS Reset and Basic Setup */
+        :root {
+            --primary-color: #2563eb; /* A modern, professional blue */
+            --dark-color: #111827;   /* Dark grey for text */
+            --light-color: #f9fafb;  /* Light grey for backgrounds */
+            --medium-color: #e5e7eb; /* Border color */
+            --text-color: #374151;   /* Main body text color */
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff;
+            color: var(--text-color);
+            line-height: 1.7;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        h1, h2, h3 {
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+        h1 { font-size: 3rem; }
+        h2 { font-size: 2.2rem; border-left: 4px solid var(--primary-color); padding-left: 1rem; }
+        h3 { font-size: 1.5rem; }
+        section {
+            padding: 5rem 0;
+        }
+        .section-light {
+            background-color: var(--light-color);
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #1d4ed8;
+        }
+        .btn-outline {
+            background: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
 
-    <!-- Services Overview -->
-    <section class="container mx-auto text-center py-16">
-        <h2 class="text-3xl font-bold">My Expertise</h2>
-        <p class="mt-4 text-gray-600">Providing Data-Driven Financial Solutions</p>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-600">Financial Analysis</h3>
-                <p class="text-gray-600 mt-2">Advanced analytics for business growth.</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-600">Automation & ERP</h3>
-                <p class="text-gray-600 mt-2">Optimizing processes with NetSuite & Power BI.</p>
-            </div>
-            <div class="bg-white p-6 rounded-lg shadow-md">
-                <h3 class="text-xl font-semibold text-blue-600">Data Visualization</h3>
-                <p class="text-gray-600 mt-2">Interactive dashboards for strategic decisions.</p>
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(255,255,255,0.9);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--medium-color);
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark-color);
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        #hero {
+            padding-top: 8rem; /* Account for fixed nav */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            min-height: 100vh;
+        }
+        #hero .hero-text {
+            flex: 1;
+        }
+        #hero .hero-text .subtitle {
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        #hero .hero-text p {
+            margin: 1.5rem 0;
+            font-size: 1.1rem;
+        }
+        #hero .hero-image {
+            flex-basis: 300px; /* fixed width for image */
+            text-align: center;
+        }
+        #hero .hero-image img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--medium-color);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        #hero .hero-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Specialization Section */
+        #specialization .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .spec-card {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            border: 1px solid var(--medium-color);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .spec-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+        .spec-card svg {
+            width: 50px;
+            height: 50px;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+
+        /* Projects Section */
+        #projects .project-grid {
+            margin-top: 3rem;
+            display: grid;
+            gap: 2rem;
+        }
+        .project-card {
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid var(--medium-color);
+            overflow: hidden;
+            display: flex;
+            transition: box-shadow 0.3s ease;
+        }
+        .project-card:hover {
+             box-shadow: 0 15px 30px rgba(0,0,0,0.08);
+        }
+        .project-card .tag {
+            background-color: var(--primary-color);
+            color: #fff;
+            writing-mode: vertical-rl;
+            text-orientation: mixed;
+            padding: 1rem 0.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+        .project-card .content {
+            padding: 2rem;
+        }
+        .project-card p {
+            margin-bottom: 1rem;
+        }
+        .project-card .result {
+            font-weight: 600;
+            color: var(--dark-color);
+            border-left: 3px solid var(--primary-color);
+            padding-left: 1rem;
+            margin-top: 1rem;
+        }
+
+        /* Toolkit Section */
+        #toolkit .toolkit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .skill-category ul {
+            list-style-type: none;
+        }
+        .skill-category li {
+            background: var(--light-color);
+            margin-bottom: 0.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            border-left: 3px solid var(--primary-color);
+        }
+
+        /* Contact Section */
+        #contact {
+            text-align: center;
+        }
+        #contact p {
+            max-width: 600px;
+            margin: 1rem auto 2rem;
+        }
+        #contact .contact-details a {
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-color);
+            color: var(--light-color);
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Animation */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            h2 { font-size: 1.8rem; }
+            nav ul { display: none; } /* Simple hiding for demo */
+            #hero {
+                flex-direction: column-reverse;
+                text-align: center;
+                padding-top: 6rem;
+                min-height: auto;
+            }
+            #hero .hero-buttons {
+                justify-content: center;
+            }
+            .project-card {
+                flex-direction: column;
+            }
+            .project-card .tag {
+                writing-mode: horizontal-tb;
+                padding: 0.5rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <div class="logo">M.I.A</div>
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#specialization">Expertise</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#toolkit">Toolkit</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header id="hero" class="container">
+        <div class="hero-text fade-in">
+            <p class="subtitle">Manager Financial Planning & Analysis</p>
+            <h1>Muhammad Imran Anwar</h1>
+            <p>Results-driven FP&A specialist with deep expertise in **NetSuite**. I design, automate, and optimize financial systems to translate complex data into clear, actionable insights for organizational success.</p>
+            <div class="hero-buttons">
+                <a href="#contact" class="btn">Let's Connect</a>
+                <a href="#" class="btn btn-outline">View Resume</a> <!-- Link to CV PDF -->
             </div>
         </div>
-    </section>
+        <div class="hero-image fade-in">
+            <!-- Replace with the actual image path -->
+            <img src="https://media.licdn.com/dms/image/v2/D4D03AQGcfwJj59TWGg/profile-displayphoto-shrink_800_800/B4DZT2jltsGkAc-/0/1739303314188?e=1756944000&v=beta&t=SmFJY5Zj5xiy2pC1AFotks5mogcFnBNXE2L9Y1Tac5Y" alt="Muhammad Imran Anwar">
+        </div>
+    </header>
 
-    <!-- Footer -->
-    <footer class="text-center py-4 bg-gray-800 text-white mt-10">
-        <p>&copy; 2025 Muhammad Imran Anwar. All Rights Reserved.</p>
+    <main>
+        <section id="specialization" class="section-light">
+            <div class="container">
+                <h2 class="fade-in">My NetSuite Expertise</h2>
+                <div class="grid">
+                    <div class="spec-card fade-in">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9.594 3.94c.09-.542.56-.94 1.11-.94h2.593c.55 0 1.02.398 1.11.94l.213 1.281c.063.374.313.686.645.87.074.04.147.083.22.127.324.196.72.257 1.075.124l1.217-.456a1.125 1.125 0 0 1 1.37.49l1.296 2.247a1.125 1.125 0 0 1-.26 1.431l-1.003.827c-.293.24-.438.613-.438.995s.145.755.438.995l1.003.827c.447.368.592.984.26 1.431l-1.296 2.247a1.125 1.125 0 0 1-1.37.49l-1.217-.456c-.355-.133-.75-.072-1.075.124a6.57 6.57 0 0 1-.22.127c-.332.183-.582.495-.645.87l-.213 1.281c-.09.543-.56.94-1.11.94h-2.593c-.55 0-1.02-.398-1.11-.94l-.213-1.281c-.063-.374-.313-.686-.645-.87a6.52 6.52 0 0 1-.22-.127c-.324-.196-.72-.257-1.075-.124l-1.217.456a1.125 1.125 0 0 1-1.37-.49l-1.296-2.247a1.125 1.125 0 0 1 .26-1.431l1.004-.827c.292-.24.437-.613.437-.995s-.145-.755-.437-.995l-1.004-.827a1.125 1.125 0 0 1-.26-1.431l1.296-2.247a1.125 1.125 0 0 1 1.37-.49l1.217.456c.355.133.75.072 1.075-.124.072-.044.146-.087.22-.127.332-.183.582-.495.645-.87l.213-1.281Z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" /></svg>
+                        <h3>Admin & Optimization</h3>
+                        <p>Managing system configurations, permissions, and workflow optimizations to ensure NetSuite runs at peak efficiency.</p>
+                    </div>
+                    <div class="spec-card fade-in">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 3v11.25A2.25 2.25 0 0 0 6 16.5h12A2.25 2.25 0 0 0 20.25 14.25V5.25A2.25 2.25 0 0 0 18 3H6A2.25 2.25 0 0 0 3.75 3ZM12 15.75h.007v.008H12v-.008Z" /><path d="M16.5 7.5h.008v.008H16.5V7.5Z" /></svg>
+                        <h3>Custom Reporting</h3>
+                        <p>Designing tailored financial and management reports within NetSuite for clients, executives, and board-level audiences.</p>
+                    </div>
+                    <div class="spec-card fade-in">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M13.19 8.688a4.5 4.5 0 0 1 1.242 7.244l-4.5 4.5a4.5 4.5 0 0 1-6.364-6.364l1.757-1.757m13.35-.622 1.757-1.757a4.5 4.5 0 0 0-6.364-6.364l-4.5 4.5a4.5 4.5 0 0 0 1.242 7.244" /></svg>
+                        <h3>Integration & Automation</h3>
+                        <p>Connecting NetSuite with platforms like Factura.ai to automate workflows, reduce errors, and accelerate key processes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2 class="fade-in">Featured Projects</h2>
+                <div class="project-grid">
+                    <div class="project-card fade-in">
+                        <div class="tag">Automation</div>
+                        <div class="content">
+                            <h3>AP Automation with NetSuite + Fectura.ai</h3>
+                            <p><strong>Challenge:</strong> The accounts payable process was manual, slow, and error-prone, consuming valuable team hours.</p>
+                            <p><strong>Action:</strong> Led the integration of Fectura.ai with NetSuite, automating the entire AP workflow from invoice capture to payment processing.</p>
+                            <p class="result">Result: Reduced AP processing time by 50% and increased accuracy.</p>
+                        </div>
+                    </div>
+                    <div class="project-card fade-in">
+                        <div class="tag">Implementation</div>
+                        <div class="content">
+                            <h3>End-to-End Client System Onboarding</h3>
+                            <p><strong>Challenge:</strong> Onboard two new, large-scale clients who needed a complete financial system setup from the ground up.</p>
+                            <p><strong>Action:</strong> Managed the full onboarding, including migrating and reconciling 5 years of historical financial data and building all core statements in NetSuite.</p>
+                            <p class="result">Result: Successfully launched both clients on a robust and fully aligned financial system.</p>
+                        </div>
+                    </div>
+                    <div class="project-card fade-in">
+                        <div class="tag">Reporting</div>
+                        <div class="content">
+                            <h3>Consolidated Reporting for a Multi-Entity Group</h3>
+                            <p><strong>Challenge:</strong> The organization lacked a unified view of its financial performance across multiple subsidiaries.</p>
+                            <p><strong>Action:</strong> Developed a consolidated reporting package and led intercompany reconciliations, resolving over 100+ discrepancies monthly.</p>
+                            <p class="result">Result: Delivered a single source of truth for leadership, enabling better strategic decisions.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="toolkit" class="section-light">
+            <div class="container">
+                <h2 class="fade-in">My Professional Toolkit</h2>
+                <div class="toolkit-grid">
+                    <div class="skill-category fade-in">
+                        <h3>ERP Systems</h3>
+                        <ul>
+                            <li><strong>NetSuite (Specialist)</strong></li>
+                            <li>SAP</li>
+                            <li>Oracle</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category fade-in">
+                        <h3>Data Visualization</h3>
+                        <ul>
+                            <li>Power BI</li>
+                            <li>Tableau</li>
+                            <li>Looker Studio</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category fade-in">
+                        <h3>Advanced Excel</h3>
+                        <ul>
+                            <li>Financial Modeling</li>
+                            <li>Power Query</li>
+                            <li>Macros & VBA</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category fade-in">
+                        <h3>Core Competencies</h3>
+                        <ul>
+                            <li>FP&A</li>
+                            <li>Process Automation</li>
+                            <li>Financial Closing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container fade-in">
+                <h2>Let's Build Something Great Together</h2>
+                <p>I am passionate about solving complex financial puzzles and helping businesses thrive. If you're looking for an expert with deep NetSuite skills to optimize your operations, I'd love to hear from you.</p>
+                <div class="contact-details">
+                    <a href="mailto:i.anwar2004@gmail.com">i.anwar2004@gmail.com</a>
+                </div>
+                <br>
+                <a href="#" class="btn">Get In Touch</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Muhammad Imran Anwar. All Rights Reserved.</p>
+        </div>
     </footer>
+
+    <script>
+        // Simple fade-in on scroll animation
+        const faders = document.querySelectorAll('.fade-in');
+        const appearOptions = {
+            threshold: 0.2, // Trigger when 20% of the element is visible
+            rootMargin: "0px 0px -50px 0px" // Start animating a bit before it's fully in view
+        };
+
+        const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) {
+                    return;
+                } else {
+                    entry.target.classList.add('is-visible');
+                    appearOnScroll.unobserve(entry.target);
+                }
+            });
+        }, appearOptions);
+
+        faders.forEach(fader => {
+            appearOnScroll.observe(fader);
+        });
+    </script>
 </body>
 </html>
