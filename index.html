@@ -478,14 +478,17 @@
           pageUrl: window.location.href
         };
          console.log(JSON.stringify(data));
-          
+          const controller = new AbortController();
+            const timeoutId = setTimeout(() => controller.abort(), 5000);
         fetch('https://script.google.com/macros/s/AKfycbwI1oCu3CV3O_lxv_eg5ocvwv3amVEnk8qhLtom-vv5tT8Iw_bv1fcG6oLBLzMYiGGsuQ/exec', {
+             signal: controller.signal,
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
           },
           body: JSON.stringify(data)
         })
+        .finally(() => clearTimeout(timeoutId))
         .then(response => response.text())
         .then(text => console.log(text))
         .catch(error => console.error('Error sending data:', error));
