@@ -292,24 +292,7 @@
         }
     </style>
 
-    <script>
-document.addEventListener('DOMContentLoaded', () => {
-  const logData = {
-    timestamp: new Date().toISOString(),
-    referrer: document.referrer,
-    language: navigator.language,
-    platform: navigator.platform,
-    screen: `${screen.width}x${screen.height}`,
-    url: window.location.href
-  };
-
-  fetch('https://script.google.com/macros/s/AKfycbwaQzHiiVUUOqA7Bd895cKhQnKIE9AwsBkb4lPaUIE-8roarekUNmqWSh17S48po4UZ/exec', {
-    method: 'POST',
-    headers: {'Content-Type': 'application/json'},
-    body: JSON.stringify(logData)
-  }).catch(console.error);
-});
-</script>
+   
     
 </head>
 <body>
@@ -484,5 +467,23 @@ document.addEventListener('DOMContentLoaded', () => {
             appearOnScroll.observe(fader);
         });
     </script>
+     <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const logData = {
+    timestamp: new Date().toISOString(),
+    referrer: document.referrer,
+    language: navigator.language,
+    platform: navigator.platform,
+    screen: `${screen.width}x${screen.height}`,
+    url: window.location.href
+  };
+
+  fetch('https://script.google.com/macros/s/AKfycbwaQzHiiVUUOqA7Bd895cKhQnKIE9AwsBkb4lPaUIE-8roarekUNmqWSh17S48po4UZ/exec', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json'},
+    body: JSON.stringify(logData)
+  }).catch(console.error);
+});
+</script>
 </body>
 </html>
