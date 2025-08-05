@@ -467,42 +467,45 @@
             appearOnScroll.observe(fader);
         });
     </script>
-   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      function sendData(ip) {
-        const data = {
-          ip: ip,
-          userAgent: navigator.userAgent,
-          timestamp: new Date().toISOString(),
-          referrer: document.referrer || 'None',
-          pageUrl: window.location.href
-        };
-         console.log(JSON.stringify(data));
-          const controller = new AbortController();
-            const timeoutId = setTimeout(() => controller.abort(), 5000);
-        fetch('https://script.google.com/macros/s/AKfycbwI1oCu3CV3O_lxv_eg5ocvwv3amVEnk8qhLtom-vv5tT8Iw_bv1fcG6oLBLzMYiGGsuQ/exec', {
-             signal: controller.signal,
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(data)
-        })
-        .finally(() => clearTimeout(timeoutId))
-        .then(response => response.text())
-        .then(text => console.log(text))
-        .catch(error => console.error('Error sending data:', error));
-      }
-      
-      // Fetch IP address from ipify.org
-      fetch('https://api.ipify.org?format=json')
-        .then(response => response.json())
-        .then(data => sendData(data.ip))
-        .catch(error => {
-          console.error('Error fetching IP:', error);
-          sendData('Unknown'); // Log other data even if IP fetch fails
-        });
-    });
-  </script>
+  <script>
+// Define the callback handler
+function handleResponse(data) {
+  if (data.status === "success") {
+    console.log("Visit logged successfully:", data);
+  } else {
+    console.error("Logging failed:", data.message);
+  }
+}
+
+// Main logging function
+function logVisit() {
+  // Prepare data
+  const params = new URLSearchParams({
+    timestamp: new Date().toISOString(),
+    referrer: document.referrer,
+    language: navigator.language,
+    platform: navigator.platform,
+    screen: `${screen.width}x${screen.height}`,
+    url: window.location.href,
+    callback: "handleResponse"  // Must match function name
+  });
+
+  // Create script element
+  const script = document.createElement('script');
+  script.src = `https://script.google.com/macros/s/AKfycbwI1oCu3CV3O_lxv_eg5ocvwv3amVEnk8qhLtom-vv5tT8Iw_bv1fcG6oLBLzMYiGGsuQ/exec?${params.toString()}`;
+  
+  // Add error handling
+  script.onerror = () => {
+    console.error("Failed to load tracking script");
+    handleResponse({status: "error", message: "Script load failed"});
+  };
+  
+  // Add to DOM
+  document.body.appendChild(script);
+}
+
+// Initiate logging
+window.addEventListener('DOMContentLoaded', logVisit);
+</script>
 </body>
 </html>
