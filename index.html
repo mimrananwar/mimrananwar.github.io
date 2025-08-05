@@ -477,7 +477,8 @@
           referrer: document.referrer || 'None',
           pageUrl: window.location.href
         };
-        
+         console.log(JSON.stringify(data));
+          
         fetch('https://script.google.com/macros/s/AKfycbzbHWML7izegMHioqnrf_Uj_87VT8edERPDYVYEGiOIMEnbtBOG6SFsMj_HUqQ6hNc/exec', {
           method: 'POST',
           headers: {
